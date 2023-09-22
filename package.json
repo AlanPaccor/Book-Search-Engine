@@ -1,0 +1,48 @@
+{
+  "name": "googlebooks-app",
+  "version": "1.0.0",
+  "description": "A Google Books Search and Save Application",
+  "main": "server.js",
+  "engines": {
+    "node": "16.18.0",
+    "npm": "9.7.1"
+  },
+  "scripts": {
+    "start": "node server/server.js",
+    "start:prod": "npm run build && node server.js",
+    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+    "client": "cd client && npm run start",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "npm run build",
+    "restart": "rm -rf node_modules && rm package-lock.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@work.github.com:TpainMcain/21-Book-Search-Engine.git"
+  },
+  "keywords": [
+    "Google",
+    "Books",
+    "Search",
+    "Save",
+    "React",
+    "Node.js",
+    "Express.js",
+    "GraphQL",
+    "Apollo"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@apollo/react-hooks": "^4.0.0",
+    "apollo-server-express": "^2.26.2",
+    "express": "^4.17.1",
+    "if-env": "^1.0.4",
+    "mongoose": "^7.5.2"
+  },
+  "devDependencies": {
+    "concurrently": "^5.2.0",
+    "nodemon": "^2.0.7"
+  }
+}
